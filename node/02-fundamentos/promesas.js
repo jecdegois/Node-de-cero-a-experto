@@ -25,29 +25,53 @@ const salarios = [
 ];
 
 
+// const getEmpleado = (id) => {
+
+//   return new Promise((resolve, reject) => {
+//     const empleado = empleados.find((e) => e.id === id)?.nombre;
+//     if (empleado) {
+//       resolve(empleado);
+//     } else {
+//       reject(`No existe empleado con id ${id}`);
+//     }
+//   });
+
+   
+// };
 const getEmpleado = (id) => {
 
   return new Promise((resolve, reject) => {
     const empleado = empleados.find((e) => e.id === id)?.nombre;
-    if (empleado) {
-      resolve(empleado);
-    } else {
-      reject(`No existe empleado con id ${id}`);
-    }
-  });
+
+    (empleado) 
+      ? resolve(empleado)
+      :reject(`No existe empleado con id ${id}`);
+    });
 
    
 };
 
+// const getSalario = (id) => {
+
+//   return new Promise((resolve, reject) => {
+//     const salario = salarios.find(s => s.id === id)?.salario;
+//     if(salario) {
+//       resolve(salario);
+//     } else {
+//       reject(`No nay salario para el id  ${id}`);
+//     }
+//   })
+
+// }
 const getSalario = (id) => {
 
   return new Promise((resolve, reject) => {
     const salario = salarios.find(s => s.id === id)?.salario;
-    if(salario) {
-      resolve(salario);
-    } else {
-      reject(`No nay salario para el id  ${id}`);
-    }
+    const empleado = empleados.find((e) => e.id === id)?.nombre;
+    
+    (salario) 
+      ? resolve(salario)
+      : reject(`No nay salario para el trabajador  ${empleado}`);
   })
 
 }
@@ -75,3 +99,6 @@ getEmpleado(id)
       })
   })
   .catch(err => console.log(err));
+
+
+  // SIEMPRE SE DEBE MANEJAR EL ERROR EN LAS PROMESAS
