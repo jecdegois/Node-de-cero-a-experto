@@ -1,0 +1,10 @@
+sad x 1 = NaN 
+sad x 2 = NaN 
+sad x 3 = NaN 
+sad x 4 = NaN 
+sad x 5 = NaN 
+sad x 6 = NaN 
+sad x 7 = NaN 
+sad x 8 = NaN 
+sad x 9 = NaN 
+sad x 10 = NaN 
