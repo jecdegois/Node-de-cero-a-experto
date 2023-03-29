@@ -1,3 +1,15 @@
+const argv = require("yargs")
+  .option("b", {
+    alias: "base",
+    type: "number",
+    demandOption: true,
+  })
+  .check((argv, options) => {
+    if (isNaN(argv.b)) {
+      throw "La base tiene que ser un numero";
+    }
+    return true;
+  }).argv;
 // ESTE ES EL PUNTO DE ENTRADA, DEBE CONTENER LA MENOR LOGICA POSIBLE
 
 // const fileSystem = require("fs"); // por motivos didacticos tiene ese nombre, lo ideal es que sea "fs"
@@ -6,11 +18,15 @@ const { crearArchivo } = require("./helpers/multiplicar.js");
 console.clear();
 // const base = 900;
 
-const [, , arg3 = "base=5"] = process.argv;
+//console.log(process.argv);
+//console.log(argv);
 
-const [, base = 5] = arg3.split("=");
+console.log("base yargs", argv.base); // base yargs 5
+//const [, , arg3 = "base=5"] = process.argv;
 
-console.log(base);
+//const [, base = 5] = arg3.split("=");
+
+//console.log(base);
 
 // let salida = "";
 
@@ -32,6 +48,6 @@ console.log(base);
 // });
 
 // console.log(salida);
-crearArchivo(base)
+/* crearArchivo(base)
   .then((nombreArchivo) => console.log(nombreArchivo, "creado"))
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err)); */
