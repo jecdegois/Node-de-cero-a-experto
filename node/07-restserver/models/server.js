@@ -17,8 +17,13 @@ class Server {
   }
 
   middelwares() {
+    
     //CORS
-    this.app.use( cors() )
+    this.app.use( cors() );
+
+    // Parseo y lectura del body
+    this.app.use( express.json() )
+
     //Directorio Publico
     this.app.use(express.static('public')) //.use() es un middelware de express
   }
